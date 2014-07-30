@@ -1,28 +1,32 @@
 var express = require('express');
 var main = require('./routes/main.js');
 var addnote = require('./routes/addnote.js');
+var getnote = require('./routes/getnote.js');
 
-//var path = require('path');
 var app = express();
 var notes = [];
 
+app.configure( function () {
+//    app.set('view engine', 'jade');
+//    app.set('views', __dirname + '/views');
+    app.use(express.logger('dev'));
+    app.use(express.favicon());
+    app.use(express.static(__dirname + '/public'));
+    app.use(express.bodyParser());
+});
 
 
-app.get('/', main.index );
-app.get('/addnote', addnote.index );
 
+app.get('/', main.index);
+app.get('/addnote', addnote.index);
+app.get('/getnote/:id', getnote.index);
 
 app.listen(6900);
 
 
 
 
-// app.configure( function () {
-// app.set('view engine', 'jade');
-// app.set('views', __dirname + '/views');
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.bodyParser());
-// });
+
 
 
 

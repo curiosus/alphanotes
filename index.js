@@ -7,8 +7,8 @@ var app = express();
 var notes = [];
 
 app.configure( function () {
-//    app.set('view engine', 'jade');
-//    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.set('views', __dirname + '/views');
     app.use(express.logger('dev'));
     app.use(express.favicon());
     app.use(express.static(__dirname + '/public'));
@@ -17,7 +17,10 @@ app.configure( function () {
 
 
 
-app.get('/', main.index);
+//app.get('/', main.index);
+app.get('/:viewname', function (req, res) {
+    res.render(res.render(req.params.viewname));
+});
 app.get('/addnote', addnote.index);
 app.get('/getnote/:id', getnote.index);
 

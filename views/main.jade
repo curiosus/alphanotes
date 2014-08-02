@@ -1,10 +1,14 @@
 doctype
-html
+html(lang='en')
     head
         title alphaNotes
     body
-        p This is the first paragraph
-        p And the 2nd
-        p yep
+        #hder Alpha Notes
+
+        form(method='POST', action='/addnote')
+            label(for='noteentry') Note:
+            input(name='noteentry', id='noteentry')
+            input(type='submit', value='Add Note')
+
 
 

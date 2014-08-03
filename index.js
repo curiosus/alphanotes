@@ -18,10 +18,14 @@ app.configure( function () {
 
 
 //app.get('/', main.index);
-app.get('/:viewname', function (req, res) {
-    res.render(res.render(req.params.viewname));
+app.get('/', function (req, res) {
+    res.render('main');
 });
-app.get('/addnote', addnote.index);
+
+app.post('/addnote', function (req, res) {
+    res.render('addnote')
+});
+
 app.get('/getnote/:id', getnote.index);
 
 app.listen(6900);

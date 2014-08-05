@@ -2,6 +2,7 @@ var express = require('express');
 var main = require('./routes/main.js');
 var addnote = require('./routes/addnote.js');
 var getnote = require('./routes/getnote.js');
+var home = require('./routes/home.js');
 
 var app = express();
 var notes = [];
@@ -17,16 +18,20 @@ app.configure( function () {
 
 
 
-//app.get('/', main.index);
 app.get('/', function (req, res) {
     res.render('main');
 });
 
-app.post('/addnote', function (req, res) {
-    res.render('addnote')
-});
+//app.post('/addnote', function (req, res) {
+//    res.render('addnote');
+//});
+
+app.post('/addnote', addnote.index);
 
 app.get('/getnote/:id', getnote.index);
+
+
+//app.get('/', home.index)
 
 app.listen(6900);
 

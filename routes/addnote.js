@@ -1,5 +1,3 @@
-var index = function (req, res) {
-   console.log('this is on server');
-   res.send('This is the add note function')
+exports.index = function (req, res) {
+  res.render('addnote/index', {noteentry: req.param('noteentry')});
 };
-exports.index = index;

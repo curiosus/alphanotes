@@ -2,7 +2,6 @@ var express = require('express');
 var main = require('./routes/main.js');
 var addnote = require('./routes/addnote.js');
 var getnote = require('./routes/getnote.js');
-var home = require('./routes/home.js');
 
 var app = express();
 var notes = [];

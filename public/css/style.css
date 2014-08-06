@@ -1,0 +1,12 @@
+#noteentry {
+    width: 800px;
+    height: 200px;
+    background-color: #000000;
+    color: greenyellow;
+}
+
+#notetitle {
+    background-color: #000000;
+    color: greenyellow;
+    width: 800px;
+}

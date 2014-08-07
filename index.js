@@ -21,16 +21,12 @@ app.get('/', function (req, res) {
     res.render('main');
 });
 
-//app.post('/addnote', function (req, res) {
-//    res.render('addnote');
-//});
 
 app.post('/addnote', addnote.index);
 
 app.get('/getnote/:id', getnote.index);
 
 
-//app.get('/', home.index)
 
 app.listen(6900);
 

@@ -4,6 +4,7 @@
 
 
 var index = function(req, res) {
+    console.log('heeeey');
     res.send('Index Home Page');
 };
 

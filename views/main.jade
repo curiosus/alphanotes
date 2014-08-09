@@ -7,7 +7,6 @@ html(lang='en')
 
     body
         #main.container-fluid
-            #hdr Alpha Notes
             form(method='POST', action='/addnote')
                 #noteinput.row
                     #noteinputcol.col-md-12.text-center
@@ -22,6 +21,12 @@ html(lang='en')
                         input(id='addnotebtn', type='submit', value='Add Note', class='btn-primary')
 
 
+            each note in notelist
+                div.row
+                    div.col-md-6
+                        span #{note.title}
+                    div.col-md-6
+                        span #{note.text}
 
-        script(src='/js/jquery-1.11.1.js')
-        script(src='/js/bootstrap.js')
+            script(src='/js/jquery-1.11.1.js')
+            script(src='/js/bootstrap.js')

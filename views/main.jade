@@ -3,10 +3,11 @@ html(lang='en')
     head
         title alphaNotes
         link(href='/css/bootstrap.css', rel='stylesheet', type='text/css')
+        link(href='/css/bootstrap-responsive.css', rel='stylesheet', type='text/css')
         link(href='/css/style.css', rel='stylesheet', type='text/css')
 
     body
-        #main.container-fluid
+        #main.container
             form(method='POST', action='/addnote')
                 #noteinput.row
                     #noteinputcol.col-md-12.text-center
@@ -20,13 +21,20 @@ html(lang='en')
                     #addnotebtncol.col-md-12.text-center
                         input(id='addnotebtn', type='submit', value='Add Note', class='btn-primary')
 
-
-            each note in notelist
-                div.row
-                    div.col-md-6
-                        span #{note.title}
-                    div.col-md-6
-                        span #{note.text}
+                #notetablerow.row
+                    #notetablecol.col-md-6
+                        table.table.table-condensed
+                            thead
+                                tr
+                                    th ID
+                                    th Note Title
+                                    th Date
+                            each note in notelist
+                                tr
+                                    td #{note.id}
+                                    td #{note.title}
+                                    td #{note.date}
+                    #duh.col-md-6
 
             script(src='/js/jquery-1.11.1.js')
             script(src='/js/bootstrap.js')

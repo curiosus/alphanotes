@@ -7,10 +7,12 @@ exports.listNotes = function () {
 
 exports.addnote = function (text, title) {
    id_inc = id_inc + 1;
+   var entryDate = new Date();
    var note = {
        id: id_inc,
        text: text,
-       title: title
+       title: title,
+       date: entryDate
    };
    notesDb.push(note);
 };
